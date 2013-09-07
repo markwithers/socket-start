@@ -14,6 +14,14 @@ app.configure(function() {
 
 var io = require('socket.io').listen(3232);
 
-io.sockets.on('connection', function (socket) {
+var message = 'Hello World!';
 
+setInterval(function(){
+  io.sockets.emit('message', message);
+}, 3000);
+
+io.sockets.on('connection', function (socket) {
+  socket.on('change-to', function(msg){
+    message = msg;
+  })
 });
