@@ -1,5 +1,5 @@
 main = function() {
-	var socket = io.connect('http://localhost:3232');
+	var socket = io.connect('/');
 	
 	var setupSocketEvents = function() {
 		socket.on('message', function(msg){
