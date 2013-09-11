@@ -12,7 +12,7 @@ app.configure(function() {
     app.use(app.router)
 })
 
-var io = require('socket.io').listen(3232);
+var io = require('socket.io').listen(server);
 
 var message = 'Hello World!';
 
@@ -25,3 +25,4 @@ io.sockets.on('connection', function (socket) {
     message = msg;
   })
 });
+
